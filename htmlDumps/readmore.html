@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read More Example</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    .read-more-content {
+      display: none; /* Hide content initially */
+    }
+
+    .read-more-btn {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+      border: none;
+      background: none;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+<article>
+  <h1>Article Title</h1>
+  <p>
+    This is the introductory text of the article. It provides a brief overview of the topic.
+  </p>
+  <div class="read-more-content">
+    <p>
+      Here is the extended content that is initially hidden. It contains more detailed information, examples, and insights on the topic.
+    </p>
+    <p>
+      This section can be as long as necessary to cover the topic comprehensively.
+    </p>
+  </div>
+  <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+</article>
+
+<script>
+  function toggleReadMore() {
+    const content = document.querySelector('.read-more-content');
+    const btn = document.querySelector('.read-more-btn');
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      btn.textContent = 'Read Less';
+    } else {
+      content.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website with Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .search-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .content {
+      margin: 20px;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My Website</h1>
+</header>
+
+<div class="search-container">
+  <input type="text" id="search-input" placeholder="Search for content..." />
+  <button onclick="searchContent()">Search</button>
+</div>
+
+<div class="content">
+  <p id="content-1">This is content about web design. Learn how to build amazing websites.</p>
+  <p id="content-2">This is content about SEO. Improve your search engine rankings.</p>
+  <p id="content-3">This is content about marketing. Discover strategies for growth.</p>
+</div>
+
+<script>
+  function searchContent() {
+    // Get the search query
+    const query = document.getElementById('search-input').value.toLowerCase();
+
+    // Define a mapping of search keywords to content IDs
+    const contentMap = {
+      'web design': 'content-1',
+      'seo': 'content-2',
+      'marketing': 'content-3'
+    };
+
+    // Check if the query matches any keywords
+    const targetContentId = contentMap[query];
+
+    if (targetContentId) {
+      // Scroll to the matched content
+      document.getElementById(targetContentId).scrollIntoView({ behavior: 'smooth' });
+      alert(`Navigated to the content for "${query}".`);
+    } else {
+      alert('Content not found. Please try another search term.');
+    }
+  }
+</script>
+
+</body>
+</html>

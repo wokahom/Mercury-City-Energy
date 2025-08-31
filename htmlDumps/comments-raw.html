@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article with Comments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .article-comments {
+      max-width: 600px;
+      margin: auto;
+    }
+    .comments-section {
+      margin-top: 40px;
+    }
+    .comments-section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .comments-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .comments-list li {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .comments-list .comment-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .comments-list .comment-text {
+      margin-top: 5px;
+    }
+    .comment-form {
+      margin-top: 20px;
+    }
+    .comment-form input,
+    .comment-form textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .comment-form textarea {
+      height: 80px;
+      resize: none;
+    }
+    .comment-form button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .comment-form button:hover {
+      background-color: #0056b3;
+    }
+    .no-comments {
+      color: gray;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="article-comments">
+    <h1>Article Title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget arcu magna.</p>
+
+    <!-- Comments Section -->
+    <div class="comments-section">
+      <h2>Comments</h2>
+      <ul class="comments-list" id="comments-list">
+        <li class="no-comments">No comments yet. Be the first to comment!</li>
+      </ul>
+
+      <!-- Comment Form -->
+      <div class="comment-form">
+        <input type="text" id="name-input" placeholder="Your Name" />
+        <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
+        <button onclick="addComment()">Post Comment</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const commentsList = document.getElementById('comments-list');
+    const nameInput = document.getElementById('name-input');
+    const commentInput = document.getElementById('comment-input');
+
+    function addComment() {
+      const name = nameInput.value.trim();
+      const commentText = commentInput.value.trim();
+
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+
+      if (!commentText) {
+        alert('Please write a comment before posting.');
+        return;
+      }
+
+      // Remove the "No comments yet" placeholder
+      const noCommentsPlaceholder = document.querySelector('.no-comments');
+      if (noCommentsPlaceholder) {
+        noCommentsPlaceholder.remove();
+      }
+
+      // Create a new list item for the comment
+      const commentItem = document.createElement('li');
+
+      const nameElement = document.createElement('div');
+      nameElement.className = 'comment-name';
+      nameElement.textContent = name;
+
+      const textElement = document.createElement('div');
+      textElement.className = 'comment-text';
+      textElement.textContent = commentText;
+
+      commentItem.appendChild(nameElement);
+      commentItem.appendChild(textElement);
+
+      // Append the comment to the comments list
+      commentsList.appendChild(commentItem);
+
+      // Clear the input fields
+      nameInput.value = '';
+      commentInput.value = '';
+    }
+  </script>
+</body>
+</html>
