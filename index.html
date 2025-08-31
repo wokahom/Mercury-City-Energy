@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mercury City Energy</title>
 
-  <meta name="description" content="Oil & Gas servicing and Renewable Energy solutions in Nigeria." />
+  <meta name="description" content="Oil & Gas servicing and Renewable Energy solutions in Nigeria." /> 
+
+  <!-- Favicon -->
+   <!--
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  -->
+  <link rel="icon" href="assets/images/mce_favicon.png" type="image/png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Mercury City Energy" />
   <meta property="og:description" content="Oil & Gas servicing and Renewable Energy solutions in Nigeria." />
-  <meta property="og:image" content="https://yourdomain.com/assets/images/mce_og.jpg" />
-  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://mercurycityenergy.com/assets/images/mce_og.jpg" />
+  <meta property="og:url" content="https://mercurycityenergy.com" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mercury City Energy" />
   <meta name="twitter:description" content="Oil & Gas servicing and Renewable Energy solutions in Nigeria." />
-  <meta name="twitter:image" content="https://yourdomain.com/assets/images/mce_og.jpg" />
+  <meta name="twitter:image" content="https://mercurycityenergy.com/assets/images/mce_og.jpg" />
 
 
-  <meta name="description" content="Oil & Gas servicing and Renewable Energy solutions in Nigeria." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -231,35 +236,37 @@
         <h2>Contact Us</h2>
         <p>Let’s discuss your project or request a site visit.</p>
       </div>
-      <div class="contact">
-        <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you shortly.');">
-          <div style="display:grid; gap:12px; grid-template-columns:1fr 1fr">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" required placeholder="Johnson Enweruzo" />
-            </div>
-            <div>
-              <label for="company">Company</label>
-              <input id="company" name="company" placeholder="Your organization" />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" required placeholder="you@example.com" />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" placeholder="+234 …" />
-            </div>
+      <div class="contact">     
+        <form id="contactForm">
+        <div style="display:grid; gap:12px; grid-template-columns:1fr 1fr">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" required placeholder="Johnson Enweruzo" />
           </div>
-          <div style="margin-top:12px">
-            <label for="message">Project Brief</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs…"></textarea>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" placeholder="Your organization" />
           </div>
-          <div style="margin-top:14px; display:flex; gap:10px; align-items:center">
-            <button class="cta" type="submit">Send Message</button>
-            <span class="tiny">We respond within 1 business day.</span>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required placeholder="you@example.com" />
           </div>
-        </form>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="+234 …" />
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <label for="message">Project Brief</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs…"></textarea>
+        </div>
+        <div style="margin-top:14px; display:flex; gap:10px; align-items:center">
+          <button class="cta" type="submit" id="submitBtn">Send Message</button>
+          <span class="tiny">We respond within 1 business day.</span>
+        </div>
+        <p id="formStatus" style="margin-top:10px; font-size:14px; color:green"></p>
+      </form>
+
         <div class="info">
           <div class="block">
             <strong>Office</strong>
@@ -346,6 +353,9 @@
     });
     // Copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  </script> 
+
+     <script src="js/form.js"></script>
+
 </body>
 </html>
