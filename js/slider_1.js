@@ -8,5 +8,5 @@
     slides[current].classList.add('active');
   }
 
-  setInterval(showNext, 1500); // every 1 sec
+  setInterval(showNext, 1000); // every 1 sec
 
